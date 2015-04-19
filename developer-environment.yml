@@ -1,0 +1,60 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  roles:
+    - homebrew
+    - homebrew-cask
+  vars:
+    # Tap external Homebrew repositories.
+    #
+    # e.g.
+    # - homebrew/binary
+    homebrew_repositories:
+
+    homebrew_packages:
+      - readline
+      - openssl
+      - { name: openssl, state: linked, install_options: force }
+      - ansible
+      - docker
+      - git
+      - git-flow
+      - heroku-toolbelt
+      - imagemagick
+      - peco
+      - mysql
+      - nvm
+      - perl
+      - python
+      - rbenv
+      - ruby-build
+      - the_silver_searcher
+      - vim
+      - wget
+      - zsh
+      - zsh-completions
+      - zsh-syntax-highlighting
+
+    # Tap external Homebrew Cask repositories.
+    homebrew_cask_repositories:
+
+    homebrew_cask_packages:
+      - atom
+      - firefox-ja
+      - google-chrome
+      - google-japanese-ime
+      - iterm2
+      - java6
+      - karabiner
+      - phpstorm
+      - rubymine
+      - skype
+      - slack
+      - spark
+      - sublime-text
+      - vagrant
+      - virtualbox
+    atom_packages_packages:
+      - project-manager
+      - recent-files
