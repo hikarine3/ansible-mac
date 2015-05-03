@@ -71,3 +71,5 @@
     -shell: pip install awscli
     -shell: pip install docker-py
     -shell: apm install preview
+    -shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+  
