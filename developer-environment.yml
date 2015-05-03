@@ -56,5 +56,17 @@
       - vagrant
       - virtualbox
     atom_packages_packages:
+      - atom-color-highlight
       - project-manager
       - recent-files
+      - minimap
+      - grunt-runner
+      - script
+      - highlight-column
+      - highlight-line
+      - color-picker
+  tasks:
+    -shell: pip install boto
+    -shell: pip install awscli
+    -shell: pip install docker-py
+    -shell: apm install preview
