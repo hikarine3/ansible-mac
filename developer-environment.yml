@@ -5,11 +5,8 @@
   roles:
     - homebrew
     - homebrew-cask
+    - atom
   vars:
-    # Tap external Homebrew repositories.
-    #
-    # e.g.
-    # - homebrew/binary
     homebrew_repositories:
 
     homebrew_packages:
@@ -41,7 +38,9 @@
 
     homebrew_cask_packages:
       - atom
+      - dash
       - firefox-ja
+      - flux
       - google-chrome
       - google-japanese-ime
       - iterm2
@@ -55,6 +54,7 @@
       - sublime-text
       - vagrant
       - virtualbox
+
     atom_packages_packages:
       - atom-color-highlight
       - project-manager
@@ -65,6 +65,7 @@
       - highlight-column
       - highlight-line
       - color-picker
+
   tasks:
     -shell: pip install boto
     -shell: pip install awscli
