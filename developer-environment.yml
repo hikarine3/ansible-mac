@@ -26,6 +26,7 @@
       - python
       - rbenv
       - ruby-build
+      - tmux
       - the_silver_searcher
       - vim
       - wget
@@ -39,12 +40,12 @@
     homebrew_cask_packages:
       - atom
       - dash
-      - firefox-ja
+      - firefox
       - flux
       - google-chrome
       - google-japanese-ime
       - iterm2
-      - java6
+      - java
       - karabiner
       - phpstorm
       - rubymine
@@ -56,9 +57,7 @@
       - virtualbox
 
     atom_packages_packages:
-      - atom-color-highlight
       - project-manager
-      - recent-files
       - minimap
       - grunt-runner
       - script
