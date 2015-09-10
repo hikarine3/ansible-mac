@@ -22,6 +22,7 @@
       - peco
       - mysql
       - nvm
+      - node
       - perl
       - python
       - rbenv
@@ -71,4 +72,5 @@
     -shell: pip install docker-py
     -shell: apm install preview
     -shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-  
+    -npm: name=coffee-script global=yes
+    -npm: name=mup global=yes
