@@ -2,6 +2,7 @@
   connection: local
   gather_facts: no
   sudo: no
+# include files
   roles:
     - homebrew
     - homebrew-cask
@@ -9,6 +10,7 @@
   vars:
     homebrew_repositories:
 
+    # homebreew is an admin system of mac packages especially for developers / normal user can use
     homebrew_packages:
       - readline
       - openssl
@@ -26,6 +28,7 @@
       - perl
       - python
       - rbenv
+      - ruby
       - ruby-build
       - tmux
       - the_silver_searcher
@@ -35,6 +38,7 @@
       - zsh-completions
       - zsh-syntax-highlighting
 
+    # homebrew_cask is an admin system of mac packages especially for developers / normal user can use
     # Tap external Homebrew Cask repositories.
     homebrew_cask_repositories:
 
@@ -71,6 +75,7 @@
     -shell: pip install awscli
     -shell: pip install docker-py
     -shell: apm install preview
+    # For .DS_Store
     -shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     -npm: name=coffee-script global=yes
     -npm: name=mup global=yes
