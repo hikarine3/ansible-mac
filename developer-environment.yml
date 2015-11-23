@@ -16,12 +16,14 @@
       - openssl
       - { name: openssl, state: linked, install_options: force }
       - ansible
+      - dnvm
       - docker
       - git
       - git-flow
       - heroku-toolbelt
       - imagemagick
       - peco
+      - mongodb
       - mysql
       - nvm
       - node
@@ -71,11 +73,15 @@
       - color-picker
 
   tasks:
-    -shell: pip install boto
-    -shell: pip install awscli
-    -shell: pip install docker-py
-    -shell: apm install preview
+    shell: pip install boto
+    shell: pip install awscli
+    shell: pip install docker-py
+    shell: apm install preview
     # For .DS_Store
-    -shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-    -npm: name=coffee-script global=yes
-    -npm: name=mup global=yes
+    shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+    npm: name=coffee-script global=yes
+    npm: name=mup global=yes
+    npm: name=yo global=yes
+    npm: name=generator-aspnet global=yes
+    homebrew_tap: tap=tap aspnet/dnx state=present
+    shell: dnmv upgade
