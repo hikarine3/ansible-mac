@@ -71,17 +71,28 @@
       - highlight-column
       - highlight-line
       - color-picker
+      - preview
 
   tasks:
-    shell: pip install boto
-    shell: pip install awscli
-    shell: pip install docker-py
-    shell: apm install preview
-    # For .DS_Store
-    shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-    npm: name=coffee-script global=yes
-    npm: name=mup global=yes
-    npm: name=yo global=yes
-    npm: name=generator-aspnet global=yes
-    homebrew_tap: tap=tap aspnet/dnx state=present
-    shell: dnmv upgade
+    - name: Install Python Libraries
+      pip: name={{ item }} state=latest
+      with_items:
+        - boto
+        - awscli
+        - docker-py
+
+    - name: Install Node.js Libraries
+      npm: name={{ item }} state=latest
+      with_items:
+        - mup
+        - yo
+        - generator-aspnet
+
+    - name: C# and dotnet
+      homebrew_tap: tap=tap aspnet/dnx state=present
+
+    - name: Install Asp.Net/dnmv is installed before by homebrew
+      shell: dnmv upgrade
+
+    - name: Set up mac
+      shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
