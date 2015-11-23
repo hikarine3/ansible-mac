@@ -1,35 +1,45 @@
+# Created by: Hajime Kurita
+# Purpose: Set up your mac for development
+# Usage:
+# ansible-playbook -i hosts developer-environment.yml
+
 - hosts: localhost
   connection: local
   gather_facts: no
   sudo: no
-# include files
+  environment:
+    BERKELEYDB_DIR: /usr/local/Cellar/berkeley-db/6.1.26
+    YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION: yes
+
   roles:
     - homebrew
     - homebrew-cask
     - atom
   vars:
     homebrew_repositories:
+      - aspnet/dnx
 
     # homebreew is an admin system of mac packages especially for developers / normal user can use
     homebrew_packages:
-      - readline
-      - openssl
-      - { name: openssl, state: linked, install_options: force }
       - ansible
+      - berkeley-db
       - dnvm
       - docker
       - git
       - git-flow
       - heroku-toolbelt
       - imagemagick
-      - peco
       - mongodb
       - mysql
       - nvm
       - node
+# - { name: openssl, state: linked, install_options: force }
+      - openssl
+      - peco
       - perl
-      - python
+      - python3
       - rbenv
+      - readline
       - ruby
       - ruby-build
       - tmux
@@ -62,37 +72,38 @@
       - sublime-text
       - vagrant
       - virtualbox
+      - visual-studio-code
 
     atom_packages_packages:
-      - project-manager
-      - minimap
+      - color-picker
       - grunt-runner
-      - script
       - highlight-column
       - highlight-line
-      - color-picker
+# ato crush
+#      - minimap
       - preview
+      - project-manager
+      - script
 
   tasks:
     - name: Install Python Libraries
-      pip: name={{ item }} state=latest
+      pip: name={{ item }} state=latest executable=pip3
       with_items:
-        - boto
         - awscli
+        - boto
+        - bsddb3
         - docker-py
+        - pymongo
+        - virtualenv
+      environment:
+        PYTHONPATH: ""
 
     - name: Install Node.js Libraries
-      npm: name={{ item }} state=latest
+      npm: name={{ item }} state=latest global=yes
       with_items:
+        - generator-aspnet
         - mup
         - yo
-        - generator-aspnet
-
-    - name: C# and dotnet
-      homebrew_tap: tap=tap aspnet/dnx state=present
-
-    - name: Install Asp.Net/dnmv is installed before by homebrew
-      shell: dnmv upgrade
 
     - name: Set up mac
       shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
