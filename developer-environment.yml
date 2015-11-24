@@ -90,10 +90,15 @@
       pip: name={{ item }} state=latest executable=pip3
       with_items:
         - awscli
+        - beautifulsoup4
         - boto
         - bsddb3
+# dont't install bson / customized bson will be installed with pymongo
+#        - bson
+        - datetime
         - docker-py
         - pymongo
+        - urlparse3
         - virtualenv
       environment:
         PYTHONPATH: ""
