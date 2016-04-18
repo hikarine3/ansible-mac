@@ -1,10 +1,16 @@
 Mac provisioning for development
 -------
 
-What you should do before use this ansible playbook
+If you haven't agreeded with xcode's liences, please type the following command and agree with it
 -------
 
 sudo xcodebuild -license;
+-------
+
+
+
+Just paste the following lines
+-------
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 
