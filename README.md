@@ -5,8 +5,6 @@ If you haven't agreeded with xcode's liences, please type the following command 
 -------
 
 sudo xcodebuild -license;
--------
-
 
 
 Just paste the following lines
