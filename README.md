@@ -12,8 +12,9 @@ brew update;
 
 brew install ansible;
 
-Set up Mac using Ansible's playbook
--------
+git clone https://github.com/hikarine3/ansible_mac.git;
+
+cd ansible_mac;
 
 ansible-playbook developer-environment.yml -i hosts;
 
