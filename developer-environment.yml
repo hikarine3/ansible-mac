@@ -29,6 +29,7 @@
       - git-flow
       - heroku-toolbelt
       - imagemagick
+      - md5sha1sum
       - mongodb
       - mysql
       - nvm
