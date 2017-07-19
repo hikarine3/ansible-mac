@@ -15,7 +15,12 @@ brew install ansible;
 Set up Mac using Ansible's playbook
 -------
 
+rm -rf ansible_mac;
+wget https://github.com/hikarine3/ansible_mac/archive/master.zip;
+unzip master.zip;
+cd ansible_mac-master;
 ansible-playbook developer-environment.yml -i hosts;
+
 
 License
 -------
