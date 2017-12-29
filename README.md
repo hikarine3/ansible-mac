@@ -13,7 +13,7 @@ Just paste the following lines
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 
-brew insatll python;
+brew install python;
 
 brew install ansible;
 
