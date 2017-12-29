@@ -1,0 +1,83 @@
+# Created by: Hajime Kurita
+# Purpose: Set up your mac for development
+# Usage:
+# ansible-playbook -i hosts developer-environment.yml
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  become: no
+
+  tasks:
+    - name: homebrew update
+      homebrew:
+        update_homebrew: yes
+ 
+    - name: homebrew tap
+      homebrew_tap: name={{ item }} state=present
+      with_items:
+        - caskroom/cask
+        - caskroom/versions
+        - homebrew/boneyard
+        - homebrew/binary
+        - homebrew/dupes
+        - homebrew/versions
+
+    - name: homebrew install
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - ansible
+        - docker
+        - git
+        - inetutils
+        - md5sha1sum
+        - mongo
+        - node
+        - npm
+        - openssl
+        - perl
+        - python3
+        - vim
+        - wget
+        - whois
+
+    - name: homebrew_cask install
+      homebrew_cask: name={{ item }} state=installed
+      environment:
+        HOMEBREW_CASK_OPTS: "--appdir=/Applications"
+      ignore_errors: True
+      with_items:
+        - adobe-acrobat-reader 
+        - android-sdk
+        - android-studio
+        - google-adwords-editor  
+        - google-chrome
+        - google-drive-file-stream
+        - firefox
+        - franz
+        - skype
+        - visual-studio-code
+
+    - name: Install Python Libraries
+      pip: name={{ item }} state=latest executable=pip3
+      with_items:
+        - awscli
+        - beautifulsoup4
+        - boto
+        - datetime
+        - docker-py
+        - pymongo
+        - urlparse3
+        - virtualenv
+      environment:
+        PYTHONPATH: ""
+
+    - name: Install Node.js Libraries
+      npm: name={{ item }} state=latest global=yes
+      with_items:
+        - yo
+
+    - name: Set up mac
+      shell: defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+    - debug: msg="To user visual studio code from shell, type command + shift + p and type shell and install"
