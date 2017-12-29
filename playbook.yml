@@ -27,6 +27,7 @@
         - docker
         - git
         - inetutils
+        - kubernetes-cli
         - md5sha1sum
         - mongo
         - node
