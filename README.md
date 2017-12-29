@@ -35,13 +35,12 @@ License
 
 MIT
 
-
 Author
 -------
 
 Hajime Kurita
 
-Hajime Kurita, an adminstrator of https://sakuhindb.com/ , http://minakoe.jp/ and so on
+An adminstrator of https://sakuhindb.com/ , http://minakoe.jp/ and so on
 
 https://twitter.com/hikarine3
 
