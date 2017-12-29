@@ -1,7 +1,4 @@
-# Created by: Hajime Kurita
-# Purpose: Set up your mac for development
-# Usage:
-# ansible-playbook -i hosts developer-environment.yml
+# Created by: Hajime Kurita / https://twitter.com/hikarine3/ https://en.sakuhindb.com/pe/Administrator/
 
 - hosts: localhost
   connection: local
