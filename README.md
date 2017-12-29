@@ -17,7 +17,7 @@ brew install python;
 
 brew install ansible;
 
-git clone https://github.com/hikarine3/ansible-mac.git;
+git clone --depth 1 https://github.com/hikarine3/ansible-mac.git;
 
 cd ansible-mac;
 
